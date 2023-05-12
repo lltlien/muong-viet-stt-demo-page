@@ -1,0 +1,4 @@
+En la mayoría de las familias, cada uno desayuna solo.
+Os sentáis al volante en la costa oeste, en San Francisco, y vuestra misión es llegar los primeros a Nueva York.
+En la redacción seguramente tendremos una discusión sobre esto durante varios días, sobre si durante la programación del juego ninguno pensó siquiera un poco o si los autores de verdad nos toman por una panda de bobos.
+El avión especial, en el que tuvieron que viajar a Podgorica, entre otros los vicepresidentes Dalibor Kucera y Rajchl, no ha salido esta mañana por problemas técnicos en Praga, teniendo que buscarse una alternativa para transportar a parte del comité ejecutivo al lugar donde tendrá lugar el partido de clasificación.
