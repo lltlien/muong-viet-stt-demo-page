@@ -1,150 +1,277 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViMLP Demo Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #000000;
+        }
 
+        h1 {
+            text-align: center;
+            color: #8a1a1a;
+        }
+
+        h2, h3, h4 {
+            color: #11497e;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        b {
+            color: #254f5a;
+        }
+
+        i {
+            color: #5e6668;
+        }
+
+        r {
+            color: #a81616;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #5c80c4;
+            color: rgb(255, 255, 255);
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        audio {
+            display: block;
+            margin: 15px 0;
+        }
+
+        .section-title {
+            border-left: 5px solid #16435f;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background-color: #ecf0f1;
+            padding: 1px;
+            border-left: 5px solid #1d5377;
+            font-size: 14px;
+        }
+        .item-label {
+            color: #077a63;
+            display: inline-block;
+            margin-left: 25px;
+        }
+    </style>
+</head>
 <body>
 
-<h1>ViMLP</h1>
+<h1>ViMLP Demo Page</h1>
+<hr>
+
+<h2 class="section-title">I. Examples of ViMLP Dataset</h2>
+
+<h4>Case 1</h4>
+<audio controls>
+    <source src="audio/ViMLP/sample3.mp3" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<p><i><b>ASR Output:</b> ...</i></p>
+<p><b>Target:</b> Là người con sinh ra và lớn lên ở vùng đất giàu truyền thống văn hóa Mường ở xóm Xê, xã Ngọc Lâu, huyện Lạc Sơn.</p>
+
+<h4>Case 2</h4>
+<audio controls>
+    <source src="audio/ViMLP/sample1.mp3" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<p><i><b>ASR Output:</b> ...</i></p>
+<p><b>Target:</b> Trong những năm qua phong trào nông dân thi đua sản xuất kinh doanh giỏi giúp nhau làm giàu và giảm nghèo bền vững luôn được các cấp Hội nông dân trên địa bàn tỉnh quan tâm, tổ chức thực hiện.</p>
+
+<h4>Case 3</h4>
+<audio controls>
+    <source src="audio/ViMLP/sample2.mp3" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+<p><i><b>ASR Output:</b> ...</i></p>
+<p><b>Target:</b> Phần cuối chương trình ngày hôm nay chúng tôi xin mời quý vị và các bạn cùng đến với những hoạt động ý nghĩa này của ông qua phóng sự sau.</p>
 
 <hr>
 
-<h2>Examples of synthetic En→De ST data</h2>
+<h2 class="section-title">II. Examples of Data Augmentation</h2>
 
-<h3>Case 1</h3>
-<p><b>Target:</b> Die Art und Weise, wie wir diese Steuern zahlen, wird sich verändern.</p>
-<p><i>(There is going to be a change in how we pay these taxes.)</i></p>
+<h3>1. Audio Stretching</h3>
+<!-- <h4>Case 1</h4> -->
+<p><b>Target:</b> Phần cuối chương trình ngày hôm nay chúng tôi xin mời quý vị và các bạn cùng đến với những hoạt động ý nghĩa này của ông qua phóng sự sau.</p>
+<p><b>ASR Output:</b> ...</p>
+<p><b>Original Audio:</b></p>
 <audio controls>
-    <source src="audio/en-de/0_pred.wav" type="audio/wav"> 
+    <source src="audio/ViMLP/sample2.mp3" type="audio/wav">
 </audio>
-<p><b>ASR Output:</b> The way we pay these taxes will change.</p>
+<p><b>Augmented Audio:</b></p>
+<p class="highlight"><i>  Hệ số kéo dãn: 1.2</i></p>
+<audio controls>
+    <source src="audio/audio_stretching/sample_2.wav" type="audio/wav">
+</audio>
 
-<h3>Case 2</h3>
-<p><b>Target:</b> Auch diese Frage soll letztlich Aufschluss darüber geben, welche Voraussetzungen es für die Entstehung von Leben gibt.</p>
-<p><i>(This question should also provide information regarding the preconditions for the origins of life.)</i></p>
+<h3>2. Additive Noise</h3>
+<!-- <h4>Case 1</h4> -->
+<p><b>Target:</b> Là người con sinh ra và lớn lên ở vùng đất giàu truyền thống văn hóa Mường ở xóm Xê, xã Ngọc Lâu, huyện Lạc Sơn.</p>
+<p><b>ASR Output:</b> ...</p>
+<p><b>Original Audio:</b></p>
 <audio controls>
-    <source src="audio/en-de/1_pred.wav" type="audio/wav"> 
+    <source src="audio/ViMLP/sample3.mp3" type="audio/wav">
 </audio>
-<p><b>ASR Output:</b> And that question is ultimately the conclusion about what conditions there are for the emergence of life.</p>
+<p><b>Augmented Audio:</b></p>
+<p class="highlight"><i>Hệ số nhiễu: 0.0082</i></p>
+<audio controls>
+    <source src="audio/additive_noise/sample_3.wav" type="audio/wav">
+</audio>
 
-<h3>Case 3</h3>
-<p><b>Target:</b> Doch die von ihr getesteten Geräte sind auch für die Straßenplaner interessant, denn sie arbeiten nicht mit GPS und liefern nur begrenzte Informationen, die regelmäßig per Modem hochgeladen werden.</p>
-<p><i>(But the devices it is testing appeal to highway planners because they don't use GPS and deliver a limited amount of information, uploaded periodically by modem.)</i></p>
+<h3>3. Paraphrasing</h3>
+<!-- <h4>Case 1</h4> -->
 <audio controls>
-    <source src="audio/en-de/2_pred.wav" type="audio/wav"> 
+    <source src="audio/ViMLP/sample2.mp3" type="audio/wav">
 </audio>
-<p><b>ASR Output:</b> But these devices they tested are also interesting for the street planners because they don't do work with GPS and the limited information that are regularly uploaded by Modem.</p>
+<p><b>ASR Output:</b> ...</p>
+<p><b>Target:</b> Phần cuối chương trình ngày hôm nay chúng tôi xin mời quý vị và các bạn cùng đến với những hoạt động ý nghĩa này của ông qua phóng sự sau.</p>
+<p><b>Paraphrasing: </b><r>Kết thúc chương trình ngày hôm nay, chúng tôi mời quý vị và các bạn cùng theo dõi những hoạt động đầy ý nghĩa này của ông qua phóng sự dưới đây.</r></p>
 
-<h3>Case 4</h3>
-<p><b>Target:</b> Diese Kartelle sind dumm, wenn sie meinen, sie könnten sich unter dem Radar hinweg durchgraben, sagte die Generalstaatsanwältin des US Distrikts Southern California, Laura Duffy, bei einer Pressekonferenz vor einem Lagerhaus in San Diego, wo das eine Ende des Tunnels entdeckt worden war.</p>
-<p><i>(These cartels are stupid if they think that they can dig through under the radar, said the US Attorney for the District of Southern California, Laura Diffy, at a press conference held in front of a warehouse in San Diego, where the end of the tunnel was discovered.)</i></p>
+<h3>4. Back-translation</h3>
+<!-- <h4>Case 1</h4> -->
 <audio controls>
-    <source src="audio/en-de/3_pred.wav" type="audio/wav"> 
+    <source src="audio/ViMLP/sample2.mp3" type="audio/wav">
 </audio>
-<p><b>ASR Output:</b> These cattles are stupid if you think you could dig through under the radar, the general prostitutor of the USA district, said Southern California. Laura Duffy, at a warehouse conference in San Diego, where one end of the tunnel was discovered.</p>
+    <p><b>ASR Output:</b> ...</p>
+    <p><b>Target:</b> Phần cuối chương trình ngày hôm nay chúng tôi xin mời quý vị và các bạn cùng đến với những hoạt động ý nghĩa này của ông qua phóng sự sau.</p>
+    <p><b>Back-translation:</b></p>
+    <p><span class="item-label">* En: <i>At the end of today's program we invite you to join us in his meaningful activities in the following report.</i></span></p>
+    <p><span class="item-label">* Vi: <i><r>Kết thúc chương trình hôm nay, chúng tôi xin trân trọng mời quý vị cùng tham gia những hoạt động ý nghĩa này của ông thông qua báo cáo sau đây.</r></i></span></p>
+
+<h3>5. BT4ST</h3>
+<!-- <h4>Case 1</h4> -->
+<p><b>Target:</b><r> Thưa quý vị và các bạn, trong những năm qua, phong trào nông dân thi đua sản xuất kinh doanh giỏi giảm nghèo bền vững luôn làm các cấp hội nông dân quan tâm tổ chức thực hiện.</r></p>
+<!-- <p><b>ASR Output:</b> Thưa các bộ các mể, tá năm chắp bơ, phong trào nông dân thi đua chản chuất kinh doanh duỗi giạm nghèo bền vững luôn nản các cấp huyện nông dân quan tâm tổ chức lá.</p> -->
+<p><b>Augmented Audio:</b></p>
+<audio controls>
+    <source src="audio/bt4st/sample_1.wav" type="audio/wav">
+</audio>
 
 <hr>
 
-<h2>Examples of synthetic En→Fr ST data</h2>
+<h2 class="section-title">III. Examples of Model Outputs</h2>
 
 <h3>Case 1</h3>
-<p><b>Target:</b> Ces automobilistes paieront bientôt à État des frais kilométriques au lieu des taxes sur essence.</p>
-<p><i>(Those drivers will soon pay the mileage fees instead of gas taxes to the state.)</i></p>
 <audio controls>
-    <source src="audio/en-fr/0_pred.wav" type="audio/wav"> 
+    <source src="audio/ViMLP/sample2.mp3" type="audio/wav">
 </audio>
-<p><b>ASR Output:</b> These automobilists soon will pay state mile fee instead of gasoline taxis.</p>
+<p><b>Target:</b> Phần cuối chương trình ngày hôm nay chúng tôi xin mời quý vị và các bạn cùng đến với những hoạt động ý nghĩa này của ông qua phóng sự sau.</p>
 
-<h3>Case 2</h3>
-<p><b>Target:</b> Un scandale sur la présence de viande de cheval dans des plats cuisinés a éclaté en Europe au début de année, à la suite de tests effectués en Irlande.</p>
-<p><i>(A scandal on the presence of horse meat in prepared meals had broken out in Europe at the beginning of the year, following tests carried out in Ireland.)</i></p>
-<audio controls>
-    <source src="audio/en-fr/1_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> A scandal of the presence of horse meat in kitchen dishes pro-cut in Europe in the early age of year after it was pro-contested in Ireland.</p>
+<h4>Model Comparison</h4>
+<p class="highlight"><i> Dataset: </i>ViMLP</p>
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>ASR Output</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>Hu-Transformer [1] (re-trained)</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>w2v2-mbart-LNA</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>w2v2-mbart-LNA-Adapters</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>w2v2-mbart-LNA-Adapters (AVG 5 ckpts)</b></td>
+            <td><i>Phần cuối chương trình hôm nay bà tôi mời các quý vị các bạn mấy đều đến với những việc làm ý nghĩa này của ông với phóng sự sau.</i></td>
+        </tr>
+    </tbody>
+</table>
 
-<h3>Case 3</h3>
-<p><b>Target:</b> La seule autre compagnie imposant de tels frais est la compagnie hongroise Wizz Air, a déclaré le consultant auprès de compagnies aériennes Jay Sorensen, qui suit de près les frais en supplément.</p>
-<p><i>(The only other airline with such a fee is Hungary Wizz Air, said airline consultant Jay Sorensen, who closely tracks add-on fees.)</i></p>
-<audio controls>
-    <source src="audio/en-fr/2_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> The only other freeze companies such as fees is the Air Hungarian with Hungarian company said the consulting to Jay Sorensen Airlines following close to the cost.</p>
-
-<h3>Case 4</h3>
-<p><b>Target:</b> Ces dernières accusations se basent entre autres sur des lettres rédigées par avocat des frères Sainte-Croix, Me Émile Perrin, dans les années 1990, mais aussi par les recherches faites dans les archives à ce sujet par le frère Wilson Kennedy, un ancien frère de Sainte-Croix qui a dénoncé publiquement les sévices.</p>
-<p><i>(The latter accusations are partly based on letters written by the lawyer of the brothers of the Holy Cross, Mr Emile Perrin QC, in the 1990s, as well as through research carried out in the archives on this subject by Brother Wilson Kennedy, a former brother of the Holy Cross who has publicly denounced the abuses.)</i></p>
-<audio controls>
-    <source src="audio/en-fr/3_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> In the last. Accusations are among letters written by lawyers of the Holy Cross Brothers ameliates me in the 1990s, but also through research done in the archive about that by the Wilson-Kennedy, a former Brother of Low Crosses that publicly denounced the services.
-</p>
-
-<hr>
-
-<h2>Examples of synthetic En→Es ST data</h2>
-
-<h3>Case 1</h3>
-<p><b>Target:</b> En la mayoría de las familias, cada uno desayuna solo.</p>
-<p><i>(In a majority of families, everyone has breakfast separately.)</i></p>
-<audio controls>
-    <source src="audio/en-es/0_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> In most families, each one breakfast alone.</p>
-
-<h3>Case 2</h3>
-<p><b>Target:</b> Os sentáis al volante en la costa oeste, en San Francisco, y vuestra misión es llegar los primeros a Nueva York.</p>
-<p><i>(You get in the car on the west coast, in San Francisco, and your task is to be the first one to reach New York.)</i></p>
-<audio controls>
-    <source src="audio/en-es/1_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> You sat down on the wheel on the west coast in San Francisco and your mission is to come into New York City.</p>
-
-<h3>Case 3</h3>
-<p><b>Target:</b> En la redacción seguramente tendremos una discusión sobre esto durante varios días, sobre si durante la programación del juego ninguno pensó siquiera un poco o si los autores de verdad nos toman por una panda de bobos.</p>
-<p><i>(For several days, our editorial staff kept discussing whether when designing the game no one thought for a moment or whether its authors really think we are such morons.)</i></p>
-<audio controls>
-    <source src="audio/en-es/2_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> In reduction, we will surely have an argument about this for several days, whether during play programming none of them even thought of it, or whether the actual authors take us for a band of zoos.</p>
-
-<h3>Case 4</h3>
-<p><b>Target:</b> El avión especial, en el que tuvieron que viajar a Podgorica, entre otros los vicepresidentes Dalibor Kucera y Rajchl, no ha salido esta mañana por problemas técnicos en Praga, teniendo que buscarse una alternativa para transportar a parte del comité ejecutivo al lugar donde tendrá lugar el partido de clasificación.</p>
-<p><i>(An extra flight that was to take, among others, the Vice Presidents Dalibor Kučera and Rajchl to Podgorica did not leave Prague in the morning due to a technical failure. An alternative was sought for in order to transport part of the executive board to the scene of the barraged rematch.)</i></p>
-<audio controls>
-    <source src="audio/en-es/3_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> The special airplane where they had to travel to Pagoric. Among others, the vice-presidents Dalibor, Kukir, and Rachel has not come out this morning for broad technical problems, having to look for an alternative to transport part of the committee executive to the place where the rating party was going to be held.
-</p>
-
-<h2>Examples of synthetic En→De ST data generated by <i>Diverse</i> BT4ST method</h2>
-<p><b>Target:</b> Wegen der aufwendigen Ausstattung des Tunnels gehen die Ermittler davon aus, dass er von Architekten und Ingenieuren konstruiert wurde und dass der Bau rund ein Jahr in Anspruch nahm.</p>
-<p><i>(Due to the elaborate configuration of the tunnel, investigators are working on the assumption that it was build by architects and engineers and that the construction took around one year.)</i></p>
-
-<h3>Output 1</h3>
-<audio controls>
-    <source src="audio/diverse/0_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> Because of the equipment of the tunnel. The investigators imagined that it was constructed by architects and engineers, and that the construction of around a year.</p>
-
-<h3>Output 2</h3>
-<audio controls>
-    <source src="audio/diverse/1_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> Because of the passage tunnel equipment, the investigators raised that it was constructed by architects and engineers, and that the construction was one year.</p>
-
-<h3>Output 3</h3>
-<audio controls>
-    <source src="audio/diverse/2_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> Because of the equipment of the tunnel. The investigator assumes that it was constructed by architects and engineers and that the round eventually taken a year.</p>
-
-<h3>Output 4</h3>
-<audio controls>
-    <source src="audio/diverse/3_pred.wav" type="audio/wav"> 
-</audio>
-<p><b>ASR Output:</b> The investigation of the tunnel is the investigation has been designed by architects and engineers and that the construction of the construction of a year.</p>
-
+<h4>Augmentation Comparison</h4>
+<p class="highlight"><i>Model:</i> wav2vec-mbart-LNA-Adapters (AVG 5 ckpts)</p>
+<p class="highlight"><i> Loss:</i> Weighted Cross Entropy</p>
+<table>
+    <thead>
+        <tr>
+            <th>Augmentation Method</th>
+            <th>ASR Output</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>No Data Augmentation</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>Back-translation</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>Back-translation + Additive Noise</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>Back-translation + Audio Stretching</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>Paraphrase</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>Paraphrase + Additive Noise</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>Paraphrase + Audio Stretching</b></td>
+            <td><i>...</i></td>
+        </tr>
+        <tr>
+            <td><b>BT4ST</b></td>
+            <td><i>Phần cuối chương trình hôm nay bà tôi mời các quý vị các bạn mấy đều đến với những việc làm ý nghĩa này của ông với phóng sự sau.</i></td>
+        </tr>
+    </tbody>
+</table>
+<p><b>References:</b></p>
+<ul>
+    <li>[1] Qingkai Fang and Yang Feng. "Back Translation for Speech-to-text Translation Without Transcripts." <i>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics, 2023.</i></li>
+</ul>
 </body>
 </html>
