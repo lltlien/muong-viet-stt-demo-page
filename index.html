@@ -142,6 +142,11 @@
     <source src="audio/audio_stretching/sample_2.wav" type="audio/wav">
 </audio>
 
+<p class="highlight"><i>  Hệ số kéo dãn: 0.8</i></p>
+<audio controls>
+    <source src="audio/audio_stretching/sampl_2_08.wav" type="audio/wav">
+</audio>
+
 <h3>2. Additive Noise</h3>
 <!-- <h4>Case 1</h4> -->
 <p><b>Target:</b> Là người con sinh ra và lớn lên ở vùng đất giàu truyền thống văn hóa Mường ở xóm Xê, xã Ngọc Lâu, huyện Lạc Sơn.</p>
@@ -191,35 +196,35 @@
 
 <h3>Case 1</h3>
 <audio controls>
-    <source src="audio/ViMLP/sample2.mp3" type="audio/wav">
+    <source src="audio/ViMLP/sample 4.mp3" type="audio/wav">
 </audio>
-<p><b>Target:</b> Phần cuối chương trình ngày hôm nay chúng tôi xin mời quý vị và các bạn cùng đến với những hoạt động ý nghĩa này của ông qua phóng sự sau.</p>
-
+<p><b><i>Transcription (Vietnamese pronunciation):</b>Thái blang tính ca ni cảo khoảng blơng hao lam ba mường ín ủn đét chiếm hai mưn khảo phẩy bải phần trăm dân số.</i></p>
+<p><b>Target:</b>Trên toàn tỉnh dạo này hiện nay có khoảng hơn 230 nghìn trẻ em chiếm 26,7 phần trăm dân số.</p>
 <h4>Model Comparison</h4>
 <p class="highlight"><i> Dataset: </i>ViMLP</p>
 <table>
     <thead>
         <tr>
             <th>Model</th>
-            <!-- <th>ASR Output</th> -->
+            <th>ASR Output</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><b>Hu-Transformer [1] (re-trained)</b></td>
-            <td><i>Phần cuối chương trình hôm nay bà tôi mời các quí vị các bọn điều đến những điều làm đấy ý nghĩa này của ông qua xong sự sau.</i></td>
+            <td><i>Thái long tính cao khoảng lương 530 nghìn ủn đét chiếm 20 khẩu phái bài phấn 5 dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>w2v2-mbart-LNA</b></td>
-            <td><i>Phần cuo chương trìm bà hôm mơi quí vì các bạn điều với qua ý nghĩ với phong sự.</i></td>
+            <td><i>Thái 5 tính ca nhi cao khoảng trên 23 nghìn em đét chiếm 20 khẩu phái 7 phấn lâm 5 dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>w2v2-mbart-LNA-Adapters</b></td>
-            <td><i>Phần cuối chường trình hôm này chúng tôi xin các vị và bạn cùng với nhau những sự làm ý nghĩa.</i></td>
+            <td><i>Thái 5 tính ca nhi cao khoảng trên 2530 nghìn em đét chiếm 20 khẩu phái 7 phần lâm 5 dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>w2v2-mbart-LNA-Adapters (AVG 5 ckpts)</b></td>
-            <td><i>Phần cuối chương trình hôm nay bà tôi mời các quý vị các bạn mấy đều đến với những việc làm ý nghĩa này của ông với phóng sự sau.</i></td>
+            <td><i>Thái 5 tính ca nhi cao khoảng trên 2530 nghìn em đét chiếm 20 khẩu phái 7 phần lâm 5 dân chủ.</i></td>
         </tr>
     </tbody>
 </table>
@@ -237,38 +242,43 @@
     <tbody>
         <tr>
             <td><b>No Data Augmentation</b></td>
-            <td><i>Phần cuối chương trình hôm nay chúng ta mời quý vị và các bạn theo dõi các hoạt động ý nghĩa của ông qua báo cáo.</i></td>
+            <td><i>Thái 5 tính ca nhi cao khoảng trên 2530 nghìn em đét chiếm 20 khẩu phái 7 phần lâm 5 dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>Back-translation</b></td>
-            <td><i>Phần cuối chương trình ngày nay chúng ta xin mời các vị quý và bạn đến các hoạt động này của ông qua báo cáo sau.</i></td>
+            <td><i>Thái long tính ca nhi cao khoảng trên 2530 nghìn em đét chiếm 20 khẩu phái 7 phần lâm 5 dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>Back-translation + Additive Noise</b></td>
-            <td><i>Phần kết thúc hôm nay chúng tôi mời bạn và quý vị xem các việc ý nghĩa của ông qua đoạn báo cáo này.</i></td>
+            <td><i>Thái long tính ca nhi cao khoảng hơn 253 nghìn em đét chiếm 20 khẩu phái 7 phần lâm lâm dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>Back-translation + Audio Stretching</b></td>
-            <td><i>Kết thúc chương trình hôm nay, chúng tôi mời bạn và quý vị cùng xem những điều ý nghĩa của ông qua bài báo cáo này.</i></td>
+            <td><i>Thái long tính ca này cao khoảng hơn 253 10 nghìn trẻ em chiếm 20 khẩu phái 7 phần lâm dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>Paraphrase</b></td>
-            <td><i>Cuối chương trình hôm nay, chúng ta mời quý vị tham gia hoạt động đầy ý nghĩa qua báo cáo sau.</i></td>
+            <td><i>Thái 5 tỉnh ca này có khoảng trên 230 nghìn trẻ em chiếm 26 phần 7 phần lâm dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>Paraphrase + Additive Noise</b></td>
-            <td><i>Kết thúc hôm nay, chúng tôi mời bạn và quý vị đến các hoạt động ý nghĩa qua bài báo cáo sau.</i></td>
+            <td><i>Thái 5 tỉnh ca nhi cao khoảng trên 2530 nghìn em đét chiếm 20 khẩu phái 7 phần lâm dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>Paraphrase + Audio Stretching</b></td>
-            <td><i>Kết thúc chương trình, chúng tôi trân trọng mời các quý vị đến với hoạt động đầy ý nghĩa qua báo cáo sau.</i></td>
+            <td><i>Thái 5 tỉnh ca nhi cao khoảng trên 2530 nghìn em đét chiếm 20 khẩu phái 7 phần lâm dân chủ.</i></td>
         </tr>
         <tr>
             <td><b>BT4ST</b></td>
-            <td><i>Phần cuối chương trình hôm nay bà tôi mời các quý vị các bạn mấy đều đến với những việc làm ý nghĩa này của ông với phóng sự sau.</i></td>
+            <td><i>Thái 5 tỉnh ca này có khoảng hơn 230 nghìn trẻ em chiếm 26 phái 7 phần trăm dân chủ.</i></td>
+        </tr>
+        <tr>
+            <td><b>Ensemble</b></td>
+            <td><i>Thái toàn tỉnh ca này có khoảng trên 230 nghìn trẻ em chiếm 26 phái 7 phần trăm dân chủ.</i></td>
         </tr>
     </tbody>
 </table>
+
 <p><b>References:</b></p>
 <ul>
     <li>[1] Qingkai Fang and Yang Feng. "Back Translation for Speech-to-text Translation Without Transcripts." <i>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics, 2023.</i></li>
